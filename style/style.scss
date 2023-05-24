@@ -1,0 +1,54 @@
+@import url("normalize.css");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
+
+$theme-color: rgb(199, 23, 23);
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  font-family: "Roboto", sans-serif;
+  width: 100%;
+  &__bg {
+    position: absolute;
+    top: 0;
+    max-width: 100%;
+    min-height: 100vh;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  z-index: 1;
+  &__img {
+    filter: invert(1);
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    color: white;
+  }
+  &__item {
+    margin: 0 10px;
+  }
+  &__logo {
+    object-fit: cover;
+    width: 80px;
+  }
+  &__bin {
+    object-fit: cover;
+    width: 20px;
+  }
+}
