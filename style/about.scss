@@ -1,0 +1,48 @@
+@import "variables";
+
+.about {
+  &__title-fakeWrap {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    min-height: 120px;
+    background-color: lighten($theme-color, 30%);
+    width: 100%;
+  }
+
+  &__title-wrap {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    min-height: 120px;
+    color: $font-color;
+    font-size: 25px;
+    font-weight: bold;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  &__title {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin: 0 10px;
+    z-index: 1;
+  }
+
+  &__content {
+    color: $font-color;
+    margin: 0 auto;
+    max-width: 500px;
+    line-height: 25px;
+  }
+
+  &__content-title {
+    text-align: center;
+    margin: 40px 0 20px 0;
+  }
+
+  &__slash {
+    color: red;
+  }
+}

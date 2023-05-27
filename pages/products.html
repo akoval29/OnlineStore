@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style/main.css" />
+    <link rel="stylesheet" href="../style/products.css" />
+  </head>
+  <body class="products">
+    <div class="products__title-fakeWrap"></div>
+    <div class="products__title-wrap">
+      <p class="products__title">Home / Products</p>
+    </div>
+    <section class="products__content">
+      <article class="products__search-wrap">
+        <input
+          class="products__input"
+          name="products__input"
+          type="text"
+          placeholder="Search ..."
+        />
+        <h1 class="products__search-title">Company</h1>
+        <p class="products__search-item products__All">всі товари</p>
+        <p class="products__search-item products__LivingRoom">Вітальня</p>
+        <p class="products__search-item products__HallRoom">Передпокій</p>
+        <p class="products__search-item products__BedRoom">Спальня</p>
+        <p class="products__search-item products__BathRoom">Ванна</p>
+        <p class="products__search-item products__PCDesc">Комп'ютерні столи</p>
+
+        <div class="slider-container">
+          <label class="products__search-title" for="myRange">Price</label
+          ><br />
+          <input
+            class="products__slider"
+            id="myRange"
+            type="range"
+            min="500"
+            max="5000"
+            value="500"
+            step="1"
+          />
+          <div class="products__slider-valueBox">
+            <span id="dot"></span>
+            <p>грн.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="products__layout"></article>
+    </section>
+    <script type="module" src="../js/products.js"></script>
+  </body>
+</html>

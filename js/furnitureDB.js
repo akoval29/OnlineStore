@@ -1,4 +1,4 @@
-export const allFood = [
+export const allFurn = [
   {
     name: "Шафа для книг, пенал з полицями та шухлядами R-26",
     type: "Вітальня",
@@ -180,3 +180,4 @@ export const allFood = [
     imageSrc: "https://images.prom.ua/3141703338_stil-pismovoyi-z.jpg",
   },
 ];
+// www.mebel-store.com.ua

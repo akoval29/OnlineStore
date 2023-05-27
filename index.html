@@ -4,18 +4,17 @@
     <meta charset="UTF-8" />
     <link rel="icon" href="src/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="test" />
+    <meta name="description" content="furniture" />
     <title>MyStore</title>
-    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="./style/main.css" />
+    <link rel="stylesheet" href="./style/normalize.css" />
   </head>
   <body class="main">
-    <img class="main__bg" src="../src/bg.png" alt="header-bg" />
-
     <header class="header">
       <nav class="header__nav">
-        <p class="header__item">Home</p>
-        <p class="header__item">Products</p>
-        <p class="header__item">About</p>
+        <a href="#home" class="header__item">Home</a>
+        <a href="#products" class="header__item">Products</a>
+        <a href="#about" class="header__item">About</a>
       </nav>
       <img
         class="header__logo header__img"
@@ -28,7 +27,8 @@
         alt="header-bin"
       />
     </header>
-    <article></article>
-    <!-- <script type="module" src="js/script.js"></script> -->
+    <article class="content"></article>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="js/script.js" defer></script>
   </body>
 </html>
