@@ -55,6 +55,30 @@
 .products__search-wrap {
   margin-bottom: 20px;
 }
+.products__input {
+  border-radius: 6px;
+  padding: 7px;
+  width: 100%;
+  box-shadow: 0 0 7px #a2c2f3;
+  transition: box-shadow 0.3s ease;
+  margin-bottom: 15px;
+}
+.products__input::-moz-placeholder {
+  color: #999;
+  font-style: italic;
+}
+.products__input::placeholder {
+  color: #999;
+  font-style: italic;
+}
+.products__input:focus {
+  outline: none;
+  box-shadow: 0 0 7px rgb(94, 150, 235);
+  border: 0;
+}
+.products__slider-container {
+  margin-top: 15px;
+}
 .products__search-item {
   cursor: pointer;
 }

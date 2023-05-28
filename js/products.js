@@ -8,9 +8,7 @@ export function renderFurn() {
   const btnBed = document.querySelector(".products__BedRoom");
   const btnBath = document.querySelector(".products__BathRoom");
   const btnDesc = document.querySelector(".products__PCDesc");
-
-  // відписка від фнкції в home
-  // window.removeEventListener("resize", adjustTitleWrapHeight);
+  const textInput = document.querySelector(".products__input");
 
   // Перший запуск
   generator(allFurn);
@@ -36,6 +34,36 @@ export function renderFurn() {
     onUpdate("Комп'ютерні столи");
   });
 
+  //логіка для інпута
+  textInput.addEventListener("input", (event) => {
+    event.preventDefault();
+    const value = event.target.value;
+    main.innerHTML = "";
+    if (value.trim() !== "") {
+      let arr = [];
+      for (let i = 0; i < allFurn.length; i++) {
+        if (allFurn[i].name.toLowerCase().includes(value.toLowerCase())) {
+          arr.push(allFurn[i]);
+        }
+      }
+      generator(arr);
+    } else {
+      generator(allFurn);
+    }
+  });
+
+  //логіка для слайдера
+  const slider = document.getElementById("myRange");
+  const output = document.getElementById("dot");
+  slider.addEventListener("input", () => {
+    const value = parseInt(slider.value);
+    output.innerHTML = `${value} грн.`;
+    main.innerHTML = "";
+    const arr = allFurn.filter((item) => item.price <= value);
+    generator(arr);
+  });
+  slider.dispatchEvent(new Event("input"));
+
   // оновлюєм сторінку кнопкою
   function onUpdate(value) {
     main.innerHTML = "";
@@ -51,11 +79,6 @@ export function renderFurn() {
   // генеруєм верстку
   function generator(arr) {
     const main = document.querySelector(".products__layout");
-    if (!main) {
-      console.error("Елемент '.products__layout' не знайдено");
-      return;
-    }
-
     for (let i = 0; i < arr.length; i++) {
       let name = arr[i].name;
       let price = arr[i].price;

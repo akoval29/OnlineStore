@@ -53,6 +53,28 @@
     margin-bottom: 20px;
   }
 
+  &__input {
+    border-radius: 6px;
+    padding: 7px;
+    width: 100%;
+    box-shadow: 0 0 7px lighten($theme-color, 15%);
+    transition: box-shadow 0.3s ease;
+    margin-bottom: 15px;
+    &::placeholder {
+      color: #999;
+      font-style: italic;
+    }
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 7px $theme-color;
+      border: 0;
+    }
+  }
+
+  &__slider-container {
+    margin-top: 15px;
+  }
+
   &__search-item {
     cursor: pointer;
   }
