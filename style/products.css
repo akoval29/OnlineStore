@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
 .products__title-fakeWrap {
   position: absolute;
   top: 60px;
@@ -8,6 +9,11 @@
   min-height: 120px;
   background-color: #e6effc;
   width: 100%;
+}
+@media (max-width: 500px) {
+  .products__title-fakeWrap {
+    top: 75px;
+  }
 }
 .products__title-wrap {
   display: flex;
@@ -19,6 +25,11 @@
   font-weight: bold;
   width: 100%;
   max-width: 100%;
+}
+@media (max-width: 500px) {
+  .products__title-wrap {
+    justify-content: center;
+  }
 }
 .products__title {
   display: flex;
@@ -33,6 +44,19 @@
   color: #0e346f;
   margin: 30px 10px;
   line-height: 25px;
+}
+@media (max-width: 500px) {
+  .products__content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+.products__search-wrap {
+  margin-bottom: 20px;
+}
+.products__search-item {
+  cursor: pointer;
 }
 .products__layout {
   display: flex;

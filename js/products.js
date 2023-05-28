@@ -1,8 +1,6 @@
 import { allFurn } from "./furnitureDB.js";
 
 export function renderFurn() {
-  console.log(allFurn);
-
   const main = document.querySelector(".products__layout");
   const btnAll = document.querySelector(".products__All");
   const btnLiving = document.querySelector(".products__LivingRoom");
@@ -10,6 +8,9 @@ export function renderFurn() {
   const btnBed = document.querySelector(".products__BedRoom");
   const btnBath = document.querySelector(".products__BathRoom");
   const btnDesc = document.querySelector(".products__PCDesc");
+
+  // відписка від фнкції в home
+  // window.removeEventListener("resize", adjustTitleWrapHeight);
 
   // Перший запуск
   generator(allFurn);

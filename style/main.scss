@@ -9,11 +9,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 60px;
+  min-height: 60px;
   width: 100%;
   z-index: 1;
-  &__img {
-    // filter: invert(1);
+  @media (max-width: 500px) {
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
   }
 
   &__nav {
@@ -25,11 +27,22 @@
     text-decoration: none;
     color: black;
     font-size: 20px;
+    font-weight: bold;
+    &:hover {
+      cursor: pointer;
+      color: $theme-color;
+    }
+    @media (max-width: 500px) {
+      margin: 10px 15px;
+    }
   }
   &__logo {
     object-fit: cover;
     width: 80px;
     cursor: pointer;
+    @media (max-width: 500px) {
+      display: none;
+    }
   }
   &__bin {
     object-fit: cover;
