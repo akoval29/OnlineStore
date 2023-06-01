@@ -82,7 +82,6 @@
   }
 
   &__search-item {
-    // transition: color 0.5s ease;
     &:hover {
       background-color: lighten($theme-color, 15%);
       cursor: pointer;

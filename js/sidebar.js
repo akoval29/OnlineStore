@@ -1,17 +1,19 @@
 export function sidebarFunc() {
   const headerBin = document.querySelector(".header__bin");
+  const headerCounter = document.querySelector(".header__counter");
   const sidebar = document.querySelector(".sidebar");
   const sidebarItems = document.querySelector(".sidebar__items");
   const closeBtn = document.querySelector(".sidebar__closeBtn");
-  const arrowUp = document.querySelector(".sidebar__arrow--up");
-  const arrowDown = document.querySelector(".sidebar__arrow--down");
 
   // SIDEBAR - відкрити/закрити
-  closeBtn.addEventListener("click", () => {
-    sidebar.classList.toggle("sidebar--open");
-  });
   headerBin.addEventListener("click", () => {
-    sidebar.classList.toggle("sidebar--open");
+    sidebar.classList.add("sidebar--open");
+  });
+  headerCounter.addEventListener("click", () => {
+    sidebar.classList.add("sidebar--open");
+  });
+  closeBtn.addEventListener("click", () => {
+    sidebar.classList.remove("sidebar--open");
   });
 
   // SIDEBAR - отрмуєм з е.таргет дані і передаєм в карточку
@@ -57,24 +59,25 @@ export function sidebarFunc() {
     }
 
     let itemHTML = `
-    <div class="sidebar__item">
-      <div class="sidebar__img-wrap">
-        <img class="sidebar__img" src=${imageUrl} alt="${altName}">
+      <div class="sidebar__item">
+        <div class="sidebar__img-wrap">
+          <img class="sidebar__img" src=${imageUrl} alt="${altName}">
+        </div>
+        <div class="sidebar__info">
+          <p class="sidebar__name">${itemName}</p>
+          <p class="sidebar__price">${price}</p>
+          <p class="sidebar__removeBtn">remove</p>
+        </div>
+        <div class="sidebar__countBox">
+          <span class="sidebar__arrow sidebar__arrow--up"></span>
+          <span class="sidebar__counter">${counter}</span>
+          <span class="sidebar__arrow sidebar__arrow--down"></span>
+        </div>
       </div>
-      <div class="sidebar__info">
-        <p class="sidebar__name">${itemName}</p>
-        <p class="sidebar__price">${price}</p>
-        <p class="sidebar__removeBtn">remove</p>
-      </div>
-      <div class="sidebar__countBox">
-        <span class="sidebar__arrow sidebar__arrow--up"></span>
-        <span class="sidebar__counter">${counter}</span>
-        <span class="sidebar__arrow sidebar__arrow--down"></span>
-      </div>
-    </div>
-  `;
+    `;
     sidebarItems.innerHTML += itemHTML;
     saveToLocalStorage(); // Зберегти в Local Storage
+    addArrowEventListeners(); // для стрілок на товарі
   }
 
   // SIDEBAR - зберегти в local storage
@@ -144,6 +147,40 @@ export function sidebarFunc() {
     }
     amountNum.innerHTML = `Total: ${totalSum} ₴`;
     amountFlag.innerHTML = totalCounter;
+  }
+
+  // SIDEBAR - кліки для стрілок в карточках сайдбару
+  function addArrowEventListeners() {
+    const arrowsUp = document.querySelectorAll(".sidebar__arrow--up");
+    const arrowsDown = document.querySelectorAll(".sidebar__arrow--down");
+
+    // SIDEBAR - збільшити кількість товару
+    arrowsUp.forEach((arrowUp) => {
+      arrowUp.addEventListener("click", (event) => {
+        const counterElement =
+          event.target.parentNode.querySelector(".sidebar__counter");
+        let counter = parseInt(counterElement.textContent);
+        counter++;
+        counterElement.textContent = counter;
+        onTotal();
+        saveToLocalStorage();
+      });
+    });
+
+    // SIDEBAR - зменшити кількість товару
+    arrowsDown.forEach((arrowDown) => {
+      arrowDown.addEventListener("click", (event) => {
+        const counterElement =
+          event.target.parentNode.querySelector(".sidebar__counter");
+        let counter = parseInt(counterElement.textContent);
+        if (counter > 1) {
+          counter--;
+          counterElement.textContent = counter;
+          onTotal();
+          saveToLocalStorage();
+        }
+      });
+    });
   }
 
   // SIDEBAR - відразу рахуєм вміст sidebar (це для local storage)
