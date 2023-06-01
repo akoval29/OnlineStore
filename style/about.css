@@ -13,6 +13,7 @@
 @media (max-width: 500px) {
   .about__title-fakeWrap {
     top: 75px;
+    min-height: 60px;
   }
 }
 .about__title-wrap {
@@ -29,6 +30,7 @@
 @media (max-width: 500px) {
   .about__title-wrap {
     justify-content: center;
+    min-height: 60px;
   }
 }
 .about__title {
@@ -42,7 +44,7 @@
   margin: 0 auto;
   max-width: 500px;
   line-height: 25px;
-  padding: 0 10px;
+  padding: 0 20px;
 }
 .about__content-title {
   text-align: center;
