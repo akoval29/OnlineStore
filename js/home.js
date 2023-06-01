@@ -2,40 +2,31 @@ import { allFurn } from "./furnitureDB.js";
 import { productsLink } from "./script.js";
 
 export function homeWorks() {
-  // змінюєм висоту
-
-  if (window.location.hash === "#home") {
-    adjustTitleWrapHeight();
-  } else {
-    window.removeEventListener("resize", adjustTitleWrapHeight);
-  }
-
+  // змінюєм висоту bg
   function adjustTitleWrapHeight() {
     const titleWrap = document.querySelector(".home__title-wrap");
-
     if (titleWrap.offsetWidth) {
       const newTitleWrapHeight = titleWrap.offsetWidth / 1.9;
       titleWrap.style.height = `${newTitleWrapHeight}px`;
       window.addEventListener("resize", adjustTitleWrapHeight);
     }
   }
+  adjustTitleWrapHeight();
 
-  // Генеруємо три випадкові числа
-  function getRandomNumber(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-  // Функція для генерації випадкових елементів бази даних
+  // Генеруємо три випадкові унікальні числа
   function generateRandomElements() {
-    var randomElements = [];
-    var allFurnLength = allFurn.length;
+    let randomElements = [];
 
-    for (var i = 0; i < 3; i++) {
-      var randomIndex = getRandomNumber(0, allFurnLength - 1);
-      randomElements.push(allFurn[randomIndex]);
+    while (randomElements.length < 3) {
+      let randomIndex = Math.floor(Math.random() * allFurn.length);
+      let randomElement = allFurn[randomIndex];
+      if (!randomElements.includes(randomElement)) {
+        randomElements.push(randomElement);
+      }
     }
-
     generator(randomElements);
   }
+  generateRandomElements();
 
   // генеруєм верстку
   function generator(arr) {
@@ -67,14 +58,12 @@ export function homeWorks() {
       home.innerHTML += str;
     }
   }
-  generateRandomElements();
 
   // онкліки для кнопок
   const showNowBtn = document.querySelector(".home__titleBtn");
   showNowBtn.addEventListener("click", () => {
     productsLink.click();
   });
-
   const allProductsBtn = document.querySelector(".home__contentBtn");
   allProductsBtn.addEventListener("click", () => {
     productsLink.click();

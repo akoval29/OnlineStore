@@ -26,8 +26,25 @@
         src="../src/bin.png"
         alt="header-bin"
       />
+      <span class="header__counter">99</span>
     </header>
+
     <article class="content"></article>
+
+    <aside class="sidebar">
+      <section class="sidebar__top">
+        <h2 class="sidebar__title">Your Bag</h2>
+        <span class="sidebar__closeBtn">&times;</span>
+      </section>
+      <section class="sidebar__mid">
+        <ul class="sidebar__items"></ul>
+      </section>
+      <section class="sidebar__bottom">
+        <p class="sidebar__total">Total: 0 ₴</p>
+        <button class="sidebar__btn">checkout</button>
+      </section>
+    </aside>
+
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script type="module" src="js/script.js" defer></script>
   </body>

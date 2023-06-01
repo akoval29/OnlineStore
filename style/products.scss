@@ -75,8 +75,17 @@
     margin-top: 15px;
   }
 
-  &__search-item {
+  &__slider {
     cursor: pointer;
+  }
+
+  &__search-item {
+    // transition: color 0.5s ease;
+    &:hover {
+      background-color: lighten($theme-color, 15%);
+      cursor: pointer;
+      color: $theme-color;
+    }
   }
 
   &__layout {
@@ -105,13 +114,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 3px solid $theme-color;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
   }
 
   &__img {
-    border: 3px solid $theme-color;
-    border-radius: 10px;
     width: 200px;
     object-fit: cover;
+    transition: transform 0.3s ease;
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.1);
+    }
   }
 
   &__info {
