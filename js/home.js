@@ -1,7 +1,7 @@
-import { allFurn } from "./furnitureDB.js";
+import { allFurniture } from "./furnitureDB.js";
 import { productsLink } from "./script.js";
 
-export function homeWorks() {
+export function homeScript() {
   // змінюєм висоту bg
   function adjustTitleWrapHeight() {
     const titleWrap = document.querySelector(".home__title-wrap");
@@ -17,8 +17,8 @@ export function homeWorks() {
   function generateRandomElements() {
     let randomElements = [];
     while (randomElements.length < 3) {
-      let randomIndex = Math.floor(Math.random() * allFurn.length);
-      let randomElement = allFurn[randomIndex];
+      let randomIndex = Math.floor(Math.random() * allFurniture.length);
+      let randomElement = allFurniture[randomIndex];
       if (!randomElements.includes(randomElement)) {
         randomElements.push(randomElement);
       }

@@ -1,9 +1,10 @@
-export function sidebarFunc() {
+export function sidebarScript() {
   const headerBin = document.querySelector(".header__bin");
   const headerCounter = document.querySelector(".header__counter");
   const sidebar = document.querySelector(".sidebar");
   const sidebarItems = document.querySelector(".sidebar__items");
   const closeBtn = document.querySelector(".sidebar__closeBtn");
+  const closeBtn2 = document.querySelector(".sidebar__title");
 
   // SIDEBAR - відкрити/закрити
   headerBin.addEventListener("click", () => {
@@ -15,9 +16,23 @@ export function sidebarFunc() {
   closeBtn.addEventListener("click", () => {
     sidebar.classList.remove("sidebar--open");
   });
+  closeBtn2.addEventListener("click", () => {
+    sidebar.classList.remove("sidebar--open");
+  });
 
   // SIDEBAR - отрмуєм з е.таргет дані і передаєм в карточку
   document.addEventListener("click", (event) => {
+    // сайдбар працює в середовищі HOME
+    if (event.target.closest(".home__item")) {
+      const productItem = event.target.closest(".home__item");
+      const imageUrl = productItem
+        .querySelector(".home__img")
+        .getAttribute("src");
+      const itemName = productItem.querySelector(".home__name").textContent;
+      const price = productItem.querySelector(".home__price").textContent;
+      addToCart(imageUrl, itemName, price);
+    }
+    // сайдбар працює в середовищі PRODUCTS
     if (event.target.closest(".products__item")) {
       const productItem = event.target.closest(".products__item");
       const imageUrl = productItem
@@ -90,7 +105,7 @@ export function sidebarFunc() {
     const newItem = sidebarItems.querySelector(".newItem");
     setTimeout(() => {
       newItem.classList.remove("newItem");
-    }, 350);
+    }, 310);
   }
 
   // SIDEBAR - зберегти в local storage
@@ -98,7 +113,6 @@ export function sidebarFunc() {
     const sidebarItems = Array.from(
       document.querySelectorAll(".sidebar__item")
     );
-
     const data = sidebarItems.map((item) => {
       const imageUrl = item.querySelector(".sidebar__img").getAttribute("src");
       const itemName = item.querySelector(".sidebar__name").textContent;
@@ -106,7 +120,6 @@ export function sidebarFunc() {
       const counter = item.querySelector(".sidebar__counter").textContent;
       return { imageUrl, itemName, price, counter };
     });
-
     localStorage.setItem("sidebarData", JSON.stringify(data));
   }
 
@@ -133,7 +146,6 @@ export function sidebarFunc() {
       const updatedItems = items.filter((item) => item.itemName !== itemName);
       localStorage.setItem("sidebarData", JSON.stringify(updatedItems));
     }
-
     // для корекної роботи анімації
     const itemToRemove = document.querySelector(".sidebar__item");
     itemToRemove.classList.add("removedItem");
@@ -170,7 +182,6 @@ export function sidebarFunc() {
   function addArrowEventListeners() {
     const arrowsUp = document.querySelectorAll(".sidebar__arrow--up");
     const arrowsDown = document.querySelectorAll(".sidebar__arrow--down");
-
     // SIDEBAR - збільшити кількість товару
     arrowsUp.forEach((arrowUp) => {
       arrowUp.addEventListener("click", (event) => {

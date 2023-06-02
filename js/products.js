@@ -1,6 +1,6 @@
-import { allFurn } from "./furnitureDB.js";
+import { allFurniture } from "./furnitureDB.js";
 
-export function renderFurn() {
+export function productsScript() {
   const main = document.querySelector(".products__layout");
   const btnAll = document.querySelector(".products__All");
   const btnLiving = document.querySelector(".products__LivingRoom");
@@ -11,12 +11,12 @@ export function renderFurn() {
   const textInput = document.querySelector(".products__input");
 
   // Перший запуск
-  generator(allFurn);
+  generator(allFurniture);
 
   // навішуєм обробники подій на btn
   btnAll.addEventListener("click", () => {
     main.innerHTML = ""; // видалити все з main
-    generator(allFurn);
+    generator(allFurniture);
   });
   btnLiving.addEventListener("click", () => {
     onUpdate("Вітальня");
@@ -38,9 +38,9 @@ export function renderFurn() {
   function onUpdate(value) {
     main.innerHTML = "";
     let arr = [];
-    for (let i = 0; i < allFurn.length; i++) {
-      if (allFurn[i].type === value) {
-        arr.push(allFurn[i]);
+    for (let i = 0; i < allFurniture.length; i++) {
+      if (allFurniture[i].type === value) {
+        arr.push(allFurniture[i]);
       }
     }
     generator(arr);
@@ -53,14 +53,14 @@ export function renderFurn() {
     main.innerHTML = "";
     if (value.trim() !== "") {
       let arr = [];
-      for (let i = 0; i < allFurn.length; i++) {
-        if (allFurn[i].name.toLowerCase().includes(value.toLowerCase())) {
-          arr.push(allFurn[i]);
+      for (let i = 0; i < allFurniture.length; i++) {
+        if (allFurniture[i].name.toLowerCase().includes(value.toLowerCase())) {
+          arr.push(allFurniture[i]);
         }
       }
       generator(arr);
     } else {
-      generator(allFurn);
+      generator(allFurniture);
     }
   });
 
@@ -71,7 +71,7 @@ export function renderFurn() {
     const value = parseInt(slider.value);
     output.innerHTML = `${value} грн.`;
     main.innerHTML = "";
-    const arr = allFurn.filter((item) => item.price <= value);
+    const arr = allFurniture.filter((item) => item.price <= value);
     generator(arr);
   });
   slider.dispatchEvent(new Event("input"));

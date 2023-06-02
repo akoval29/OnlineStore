@@ -1,6 +1,6 @@
-import { renderFurn } from "./products.js";
-import { homeWorks } from "./home.js";
-import { sidebarFunc } from "./sidebar.js";
+import { homeScript } from "./home.js";
+import { sidebarScript } from "./sidebar.js";
+import { productsScript } from "./products.js";
 
 const homeLink = document.querySelector('a[href="#home"]');
 export const productsLink = document.querySelector('a[href="#products"]');
@@ -18,10 +18,10 @@ const navigateTo = async () => {
     const response = await axios.get("pages/" + url + ".html");
     content.innerHTML = response.data;
     if (url === "products") {
-      renderFurn();
+      productsScript();
     }
     if (url === "home") {
-      homeWorks();
+      homeScript();
     }
   } catch (error) {
     console.error(error);
@@ -46,7 +46,7 @@ aboutLink.addEventListener("click", handleNavigation);
 
 // перша загрузка
 window.addEventListener("DOMContentLoaded", navigateTo);
-sidebarFunc();
+sidebarScript();
 
 // клік на logo - перезапуск сторінки
 logo.addEventListener("click", () => {

@@ -1,4 +1,4 @@
-export const allFurn = [
+export const allFurniture = [
   {
     name: "Шафа для книг, пенал з полицями та шухлядами R-26",
     type: "Вітальня",
