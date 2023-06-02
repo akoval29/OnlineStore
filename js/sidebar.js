@@ -28,9 +28,14 @@ export function sidebarFunc() {
       addToCart(imageUrl, itemName, price);
     }
     // кнопка "remove" в карточці
+    // і затримка для анімації видалення
     if (event.target.classList.contains("sidebar__removeBtn")) {
       const sidebarItem = event.target.closest(".sidebar__item");
-      sidebarItem.remove();
+      sidebarItem.classList.add("removedItem");
+      setTimeout(() => {
+        sidebarItem.remove();
+        onTotal();
+      }, 300);
     }
     onTotal();
     saveToLocalStorage();
@@ -60,7 +65,7 @@ export function sidebarFunc() {
     }
 
     let itemHTML = `
-      <div class="sidebar__item">
+      <div class="sidebar__item newItem">
         <div class="sidebar__img-wrap">
           <img class="sidebar__img" src=${imageUrl} alt="${altName}">
         </div>
@@ -76,9 +81,16 @@ export function sidebarFunc() {
         </div>
       </div>
     `;
+
     sidebarItems.innerHTML += itemHTML;
     saveToLocalStorage(); // Зберегти в Local Storage
     addArrowEventListeners(); // для стрілок на товарі
+
+    // прибираєм клас newItem для коректної роботи анімації
+    const newItem = sidebarItems.querySelector(".newItem");
+    setTimeout(() => {
+      newItem.classList.remove("newItem");
+    }, 350);
   }
 
   // SIDEBAR - зберегти в local storage
@@ -121,6 +133,10 @@ export function sidebarFunc() {
       const updatedItems = items.filter((item) => item.itemName !== itemName);
       localStorage.setItem("sidebarData", JSON.stringify(updatedItems));
     }
+
+    // для корекної роботи анімації
+    const itemToRemove = document.querySelector(".sidebar__item");
+    itemToRemove.classList.add("removedItem");
   }
 
   // SIDEBAR - рахуєм кількість і вартість товару

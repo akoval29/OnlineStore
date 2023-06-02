@@ -78,6 +78,7 @@
   top: 10px;
   right: 10px;
   text-align: center;
+  text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.7);
   cursor: pointer;
 }
 .header__counter--show {
@@ -172,7 +173,7 @@
   border-radius: 5px;
   background-color: #fff;
 }
-.sidebar__item.new-item {
+.sidebar__item.newItem {
   opacity: 0;
   transform: translateX(100%);
   animation: slideIn 0.3s ease forwards;
@@ -185,6 +186,19 @@
   100% {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+.sidebar__item.removedItem {
+  animation: slideOut 0.3s ease forwards;
+}
+@keyframes slideOut {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
   }
 }
 .sidebar__img {

@@ -8,7 +8,7 @@ export const allFurn = [
     imageSrc: "https://images.prom.ua/4500813447_w280_h280_shafa-dlya-knig.jpg",
   },
   {
-    name: "Полиця для книг, стелаж на 12 комірок M-8",
+    name: "Полиці для книг, стелаж на 12 комірок M-8",
     type: "Вітальня",
     price: 2199,
     description:

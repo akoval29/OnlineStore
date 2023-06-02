@@ -67,6 +67,7 @@
     top: 10px;
     right: 10px;
     text-align: center;
+    text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.7);
     cursor: pointer;
     &--show {
       display: block;
@@ -181,7 +182,8 @@
     background-color: #fff;
   }
 
-  &__item.new-item {
+  // newItem супроводжується скриптами sidebar.js (67, 89 рядки)
+  &__item.newItem {
     opacity: 0;
     transform: translateX(100%);
     animation: slideIn 0.3s ease forwards;
@@ -197,6 +199,23 @@
       transform: translateX(0);
     }
   }
+
+  // removedItem супроводжується скриптами sidebar.js (35 рядок)
+  &__item.removedItem {
+    animation: slideOut 0.3s ease forwards;
+  }
+
+  @keyframes slideOut {
+    0% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+  }
+  // ----------  //
 
   &__img {
     object-position: center;
