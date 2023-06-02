@@ -34,6 +34,18 @@ export function renderFurn() {
     onUpdate("Комп'ютерні столи");
   });
 
+  // оновлюєм сторінку кнопкою
+  function onUpdate(value) {
+    main.innerHTML = "";
+    let arr = [];
+    for (let i = 0; i < allFurn.length; i++) {
+      if (allFurn[i].type === value) {
+        arr.push(allFurn[i]);
+      }
+    }
+    generator(arr);
+  }
+
   //логіка для інпута
   textInput.addEventListener("input", (event) => {
     event.preventDefault();
@@ -63,18 +75,6 @@ export function renderFurn() {
     generator(arr);
   });
   slider.dispatchEvent(new Event("input"));
-
-  // оновлюєм сторінку кнопкою
-  function onUpdate(value) {
-    main.innerHTML = "";
-    let arr = [];
-    for (let i = 0; i < allFurn.length; i++) {
-      if (allFurn[i].type === value) {
-        arr.push(allFurn[i]);
-      }
-    }
-    generator(arr);
-  }
 
   // генеруєм верстку
   function generator(arr) {

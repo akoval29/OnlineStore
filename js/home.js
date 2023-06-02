@@ -16,7 +16,6 @@ export function homeWorks() {
   // Генеруємо три випадкові унікальні числа
   function generateRandomElements() {
     let randomElements = [];
-
     while (randomElements.length < 3) {
       let randomIndex = Math.floor(Math.random() * allFurn.length);
       let randomElement = allFurn[randomIndex];
@@ -32,10 +31,6 @@ export function homeWorks() {
   function generator(arr) {
     const home = document.querySelector(".home__layout");
     home.innerHTML = "";
-    if (!home) {
-      console.error("Елемент '.home__layout' не знайдено");
-      return;
-    }
 
     for (let i = 0; i < arr.length; i++) {
       let name = arr[i].name;

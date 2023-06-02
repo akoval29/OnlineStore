@@ -2,6 +2,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 .header__item {
   color: white;
 }
@@ -48,7 +50,7 @@
   color: white;
 }
 .home__title {
-  font-family: "Montserrat";
+  font-family: "Nunito", sans-serif;
   letter-spacing: 3px;
   font-size: 50px;
 }
@@ -59,8 +61,8 @@
 }
 @media (max-width: 500px) {
   .home__title {
-    margin-top: 5px;
     font-size: 15px;
+    margin-top: 5px;
   }
 }
 .home__subTitle {
@@ -83,6 +85,8 @@
   margin: 40px 0 20px 0;
   color: black;
   font-size: 40px;
+  font-family: "Poppins";
+  font-weight: bold;
 }
 @media (max-width: 500px) {
   .home__content-title {
@@ -105,7 +109,7 @@
 }
 .home__button:hover {
   cursor: pointer;
-  background-color: rgb(94, 150, 235);
+  background-color: rgb(94, 143, 235);
   color: white;
 }
 .home__button:active {
@@ -120,7 +124,10 @@
   background-color: transparent;
 }
 .home__contentBtn {
-  background-color: red;
+  background-color: rgb(94, 143, 235);
+}
+.home__contentBtn:hover {
+  background-color: #1957ca;
 }
 .home__layout {
   display: flex;
@@ -147,7 +154,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 3px solid rgb(94, 150, 235);
+  border: 1px solid rgb(94, 143, 235);
   border-radius: 10px;
   position: relative;
   overflow: hidden;
@@ -168,14 +175,17 @@
   align-items: center;
   flex-wrap: wrap;
   max-width: 250px;
-  padding: 0 20px;
+  padding: 5px 20px;
 }
 .home__name, .home__price {
+  font-family: "Roboto";
+  line-height: 20px;
   text-align: center;
   font-size: 14px;
 }
 .home__price {
-  color: rgb(94, 150, 235);
+  color: rgb(94, 143, 235);
+  font-size: 17px;
 }
 .home__descr {
   margin-top: 15px;

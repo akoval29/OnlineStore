@@ -1,4 +1,4 @@
-@import "variables";
+@import "variables.scss";
 
 .about {
   &__title-fakeWrap {
@@ -48,6 +48,8 @@
   &__content-title {
     text-align: center;
     margin: 40px 0 20px 0;
+    font-family: "Poppins";
+    font-weight: bold;
   }
 
   &__slash {

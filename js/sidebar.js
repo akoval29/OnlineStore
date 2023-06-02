@@ -27,6 +27,7 @@ export function sidebarFunc() {
       const price = productItem.querySelector(".products__price").textContent;
       addToCart(imageUrl, itemName, price);
     }
+    // кнопка "remove" в карточці
     if (event.target.classList.contains("sidebar__removeBtn")) {
       const sidebarItem = event.target.closest(".sidebar__item");
       sidebarItem.remove();
@@ -37,7 +38,7 @@ export function sidebarFunc() {
 
   // SIDEBAR - шукаєм повтори і генеруєм верстку
   function addToCart(imageUrl, itemName, price, counter) {
-    itemName = itemName.substring(0, 23) + " ...";
+    itemName = itemName.substring(0, 21) + " ...";
     const altName = itemName.replace(/\s+/g, "-");
     const existingItems = sidebarItems.querySelectorAll(".sidebar__name");
     if (counter === undefined) {

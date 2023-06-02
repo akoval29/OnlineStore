@@ -8,7 +8,7 @@ const aboutLink = document.querySelector('a[href="#about"]');
 const content = document.querySelector(".content");
 const logo = document.querySelector(".header__logo");
 
-// перший запуск
+// перший запуск -
 homeLink.click();
 
 // Завантаження сторінки

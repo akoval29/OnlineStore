@@ -2,12 +2,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 .about__title-fakeWrap {
   position: absolute;
   top: 60px;
   left: 0;
   min-height: 120px;
-  background-color: #e6effc;
+  background-color: #e6eefc;
   width: 100%;
 }
 @media (max-width: 500px) {
@@ -21,7 +23,7 @@
   justify-content: left;
   align-items: center;
   min-height: 120px;
-  color: #0e346f;
+  color: #0e306f;
   font-size: 25px;
   font-weight: bold;
   width: 100%;
@@ -40,7 +42,7 @@
   z-index: 1;
 }
 .about__content {
-  color: #0e346f;
+  color: #0e306f;
   margin: 0 auto;
   max-width: 500px;
   line-height: 25px;
@@ -49,6 +51,8 @@
 .about__content-title {
   text-align: center;
   margin: 40px 0 20px 0;
+  font-family: "Poppins";
+  font-weight: bold;
 }
 .about__slash {
   color: red;

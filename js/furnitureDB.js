@@ -98,7 +98,7 @@ export const allFurn = [
     imageSrc: "https://images.prom.ua/3826654424_vishalka-nastinna-v.jpg",
   },
   {
-    name: "Навісний туалет столик з дзеркалом G0081",
+    name: "Навісний туалетний столик з дзеркалом G0081",
     type: "Спальня",
     price: 2199,
     description:
