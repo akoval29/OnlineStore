@@ -31,7 +31,6 @@ export function homeScript() {
   function generator(arr) {
     const home = document.querySelector(".home__layout");
     home.innerHTML = "";
-
     for (let i = 0; i < arr.length; i++) {
       let name = arr[i].name;
       let price = arr[i].price;
@@ -54,7 +53,7 @@ export function homeScript() {
     }
   }
 
-  // онкліки для кнопок
+  // кліки для кнопок
   const showNowBtn = document.querySelector(".home__titleBtn");
   showNowBtn.addEventListener("click", () => {
     productsLink.click();

@@ -41,6 +41,7 @@
     @media (max-width: 500px) {
       align-items: center;
       justify-content: flex-start;
+      margin: 0 0;
     }
   }
 
@@ -78,7 +79,7 @@
   }
   &__content-title {
     text-align: center;
-    margin: 40px 0 20px 0;
+    margin: 0 0 20px 0;
     color: black;
     font-size: 40px;
     font-family: "Poppins";

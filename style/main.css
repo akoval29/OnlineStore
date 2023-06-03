@@ -67,6 +67,11 @@
   width: 35px;
   cursor: pointer;
 }
+@media (max-width: 500px) {
+  .header__bin {
+    margin-right: 0px;
+  }
+}
 .header__counter {
   display: none;
   position: absolute;

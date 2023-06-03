@@ -54,6 +54,9 @@
     object-fit: cover;
     width: 35px;
     cursor: pointer;
+    @media (max-width: 500px) {
+      margin-right: 0px;
+    }
   }
   &__counter {
     display: none;

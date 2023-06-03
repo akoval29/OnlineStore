@@ -6,7 +6,7 @@ export function sidebarScript() {
   const closeBtn = document.querySelector(".sidebar__closeBtn");
   const closeBtn2 = document.querySelector(".sidebar__title");
 
-  // SIDEBAR - відкрити/закрити
+  // SIDEBAR - евент лісенери
   headerBin.addEventListener("click", () => {
     sidebar.classList.add("sidebar--open");
   });
@@ -19,9 +19,14 @@ export function sidebarScript() {
   closeBtn2.addEventListener("click", () => {
     sidebar.classList.remove("sidebar--open");
   });
+  document.addEventListener("click", (event) => {
+    sideBarCore(event);
+    onTotal();
+    saveToLocalStorage();
+  });
 
   // SIDEBAR - отрмуєм з е.таргет дані і передаєм в карточку
-  document.addEventListener("click", (event) => {
+  function sideBarCore(event) {
     // сайдбар працює в середовищі HOME
     if (event.target.closest(".home__item")) {
       const productItem = event.target.closest(".home__item");
@@ -52,11 +57,9 @@ export function sidebarScript() {
         onTotal();
       }, 300);
     }
-    onTotal();
-    saveToLocalStorage();
-  });
+  }
 
-  // SIDEBAR - шукаєм повтори і генеруєм верстку
+  // SIDEBAR - шукаєм повтори, генеруєм верстку, анімація
   function addToCart(imageUrl, itemName, price, counter) {
     itemName = itemName.substring(0, 21) + " ...";
     const altName = itemName.replace(/\s+/g, "-");
@@ -108,7 +111,7 @@ export function sidebarScript() {
     }, 310);
   }
 
-  // SIDEBAR - зберегти в local storage
+  // SIDEBAR - зберегти до local storage
   function saveToLocalStorage() {
     const sidebarItems = Array.from(
       document.querySelectorAll(".sidebar__item")
@@ -138,20 +141,7 @@ export function sidebarScript() {
     }
   }
 
-  // SIDEBAR - видалити з local storage
-  function removeFromLocalStorage(itemName) {
-    const data = localStorage.getItem("sidebarData");
-    if (data) {
-      const items = JSON.parse(data);
-      const updatedItems = items.filter((item) => item.itemName !== itemName);
-      localStorage.setItem("sidebarData", JSON.stringify(updatedItems));
-    }
-    // для корекної роботи анімації
-    const itemToRemove = document.querySelector(".sidebar__item");
-    itemToRemove.classList.add("removedItem");
-  }
-
-  // SIDEBAR - рахуєм кількість і вартість товару
+  // SIDEBAR - рахуєм кількість і вартість товару, ставим флаги
   function onTotal() {
     const sidebarItems = document.querySelectorAll(".sidebar__item");
     let totalSum = 0;
@@ -167,48 +157,47 @@ export function sidebarScript() {
       }
     });
     // Відображення кількості і вартості товару
-    const amountFlag = document.querySelector(".header__counter");
-    const amountNum = document.querySelector(".sidebar__total");
+    const amountCounter = document.querySelector(".header__counter");
+    const amountTotal = document.querySelector(".sidebar__total");
     if (totalSum > 0) {
-      amountFlag.classList.add("header__counter--show");
+      amountCounter.classList.add("header__counter--show");
     } else {
-      amountFlag.classList.remove("header__counter--show");
+      amountCounter.classList.remove("header__counter--show");
     }
-    amountNum.innerHTML = `Total: ${totalSum} ₴`;
-    amountFlag.innerHTML = totalCounter;
+    amountCounter.innerHTML = totalCounter;
+    amountTotal.innerHTML = `Total: ${totalSum} ₴`;
   }
 
   // SIDEBAR - кліки для стрілок в карточках сайдбару
   function addArrowEventListeners() {
     const arrowsUp = document.querySelectorAll(".sidebar__arrow--up");
     const arrowsDown = document.querySelectorAll(".sidebar__arrow--down");
-    // SIDEBAR - збільшити кількість товару
+
     arrowsUp.forEach((arrowUp) => {
-      arrowUp.addEventListener("click", (event) => {
-        const counterElement =
-          event.target.parentNode.querySelector(".sidebar__counter");
-        let counter = parseInt(counterElement.textContent);
-        counter++;
-        counterElement.textContent = counter;
-        onTotal();
-        saveToLocalStorage();
-      });
+      arrowUp.addEventListener("click", handleClick);
+    });
+    arrowsDown.forEach((arrowDown) => {
+      arrowDown.addEventListener("click", handleClick);
     });
 
-    // SIDEBAR - зменшити кількість товару
-    arrowsDown.forEach((arrowDown) => {
-      arrowDown.addEventListener("click", (event) => {
-        const counterElement =
-          event.target.parentNode.querySelector(".sidebar__counter");
-        let counter = parseInt(counterElement.textContent);
-        if (counter > 1) {
-          counter--;
-          counterElement.textContent = counter;
-          onTotal();
-          saveToLocalStorage();
-        }
-      });
-    });
+    function handleClick(event) {
+      const counterElement =
+        event.target.parentNode.querySelector(".sidebar__counter");
+      let counter = parseInt(counterElement.textContent);
+
+      if (event.currentTarget.classList.contains("sidebar__arrow--up")) {
+        counter++;
+      } else if (
+        event.currentTarget.classList.contains("sidebar__arrow--down") &&
+        counter > 1
+      ) {
+        counter--;
+      }
+
+      counterElement.textContent = counter;
+      onTotal();
+      saveToLocalStorage();
+    }
   }
 
   // SIDEBAR - відразу рахуєм вміст sidebar (це для local storage)

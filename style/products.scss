@@ -82,13 +82,18 @@
   }
 
   &__search-item {
-    font-family: "Lato", sans-serif;
+    font-family: "Nunito", sans-serif;
+    padding-left: 5px;
     &:hover {
       background-color: $theme-color;
-      border-radius: 3px;
+      border-radius: 4px;
       cursor: pointer;
       color: white;
     }
+  }
+
+  &__search-label {
+    font-style: italic;
   }
 
   &__layout {
