@@ -71,14 +71,9 @@ export function sidebarScript() {
   }
 
   // SIDEBAR - шукаєм повтори, генеруєм верстку, анімація
-  function addToCart(imageUrl, itemName, price, counter) {
+  function addToCart(imageUrl, itemName, price, counter = 1) {
     itemName = itemName.substring(0, 21) + " ...";
-    const altName = itemName.replace(/\s+/g, "-");
     const existingItems = sidebarItems.querySelectorAll(".sidebar__name");
-    if (counter === undefined) {
-      counter = 1;
-    }
-
     for (let i = 0; i < existingItems.length; i++) {
       if (existingItems[i].textContent === itemName) {
         // Якщо знайдено повтор, збільшуємо лічильник
@@ -93,14 +88,15 @@ export function sidebarScript() {
       }
     }
 
-    generator(imageUrl, itemName, altName, price, counter); // генеруєм верстку
+    generator(imageUrl, itemName, price, counter); // генеруєм верстку
     saveToLocalStorage(); // Зберегти в Local Storage
     addArrowEventListeners(); // для стрілок на товарі
     onAnimateCard(); // анімація
   }
 
   // SIDEBAR - генеруєм верстку
-  function generator(imageUrl, itemName, altName, price, counter) {
+  function generator(imageUrl, itemName, price, counter) {
+    const altName = itemName.replace(/\s+/g, "-");
     let itemHTML = `
       <div class="sidebar__item newItem">
         <div class="sidebar__img-wrap">
@@ -118,9 +114,11 @@ export function sidebarScript() {
         </div>
       </div>
     `;
-
     sidebarItems.innerHTML += itemHTML;
   }
+
+  // SIDEBAR - повідомлення про додавання товару
+  function bottomMessage() {}
 
   // SIDEBAR - зберегти до local storage
   function saveToLocalStorage() {

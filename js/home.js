@@ -2,16 +2,25 @@ import { allFurniture } from "./furnitureDB.js";
 import { productsLink } from "./script.js";
 
 export function homeScript() {
-  // змінюєм висоту bg
-  function adjustTitleWrapHeight() {
-    const titleWrap = document.querySelector(".home__title-wrap");
-    if (titleWrap.offsetWidth) {
-      const newTitleWrapHeight = titleWrap.offsetWidth / 1.9;
-      titleWrap.style.height = `${newTitleWrapHeight}px`;
-      window.addEventListener("resize", adjustTitleWrapHeight);
-    }
+  // корекція висоти bg
+  const titleWrap = document.querySelector(".home__title-wrap");
+  const newHeight = () => {
+    const newTitleWrapHeight = titleWrap.offsetWidth / 1.9;
+    titleWrap.style.height = `${newTitleWrapHeight}px`;
+  };
+  if (titleWrap) {
+    window.addEventListener("resize", newHeight);
+    newHeight(); // Викликати функцію при першому завантаженні
   }
-  adjustTitleWrapHeight();
+
+  // параллакс
+  const parallaxBg = document.querySelector(".home__parallax-bg");
+  if (parallaxBg) {
+    window.addEventListener("scroll", function () {
+      const scrolled = window.pageYOffset;
+      parallaxBg.style.transform = `translateY(${scrolled * 0.4}px)`;
+    });
+  }
 
   // Генеруємо три випадкові унікальні числа
   function generateRandomElements() {
@@ -61,12 +70,5 @@ export function homeScript() {
   const allProductsBtn = document.querySelector(".home__contentBtn");
   allProductsBtn.addEventListener("click", () => {
     productsLink.click();
-  });
-
-  // параллакс
-  window.addEventListener("scroll", function () {
-    const parallaxBg = document.querySelector(".home__parallax-bg");
-    const scrolled = window.pageYOffset;
-    parallaxBg.style.transform = `translateY(${scrolled * 0.4}px)`;
   });
 }
