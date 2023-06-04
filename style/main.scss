@@ -183,7 +183,7 @@
     background-color: #fff;
   }
 
-  // newItem супроводжується скриптами sidebar.js (67, 89 рядки)
+  // newItem супроводжується скриптами sidebar.js
   &__item.newItem {
     opacity: 0;
     transform: translateX(100%);
@@ -200,7 +200,7 @@
     }
   }
 
-  // removedItem супроводжується скриптами sidebar.js (35 рядок)
+  // removedItem супроводжується скриптами sidebar.js
   &__item.removedItem {
     animation: slideOut 0.3s ease forwards;
   }

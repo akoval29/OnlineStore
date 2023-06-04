@@ -89,6 +89,7 @@ export function sidebarScript() {
     }
 
     generator(imageUrl, itemName, price, counter); // генеруєм верстку
+
     saveToLocalStorage(); // Зберегти в Local Storage
     addArrowEventListeners(); // для стрілок на товарі
     onAnimateCard(); // анімація
@@ -116,9 +117,6 @@ export function sidebarScript() {
     `;
     sidebarItems.innerHTML += itemHTML;
   }
-
-  // SIDEBAR - повідомлення про додавання товару
-  function bottomMessage() {}
 
   // SIDEBAR - зберегти до local storage
   function saveToLocalStorage() {
