@@ -23,6 +23,7 @@ export function sidebarScript() {
     sideBarCore(event);
     onTotal();
     saveToLocalStorage();
+    removeBtnFunc(event);
   });
 
   // SIDEBAR - отрмуєм з е.таргет дані і передаєм в карточку
@@ -47,8 +48,10 @@ export function sidebarScript() {
       const price = productItem.querySelector(".products__price").textContent;
       addToCart(imageUrl, itemName, price);
     }
-    // кнопка "remove" в карточці
-    // і затримка для анімації видалення
+  }
+
+  // SIDEBAR - кнопка "remove" в карточці і анімація(1/2)
+  function removeBtnFunc(event) {
     if (event.target.classList.contains("sidebar__removeBtn")) {
       const sidebarItem = event.target.closest(".sidebar__item");
       sidebarItem.classList.add("removedItem");
@@ -57,6 +60,14 @@ export function sidebarScript() {
         onTotal();
       }, 300);
     }
+  }
+
+  // SIDEBAR - анімація(2/2)
+  function onAnimateCard() {
+    const newItem = sidebarItems.querySelector(".newItem");
+    setTimeout(() => {
+      newItem.classList.remove("newItem");
+    }, 300);
   }
 
   // SIDEBAR - шукаєм повтори, генеруєм верстку, анімація
@@ -82,6 +93,14 @@ export function sidebarScript() {
       }
     }
 
+    generator(imageUrl, itemName, altName, price, counter); // генеруєм верстку
+    saveToLocalStorage(); // Зберегти в Local Storage
+    addArrowEventListeners(); // для стрілок на товарі
+    onAnimateCard(); // анімація
+  }
+
+  // SIDEBAR - генеруєм верстку
+  function generator(imageUrl, itemName, altName, price, counter) {
     let itemHTML = `
       <div class="sidebar__item newItem">
         <div class="sidebar__img-wrap">
@@ -101,14 +120,6 @@ export function sidebarScript() {
     `;
 
     sidebarItems.innerHTML += itemHTML;
-    saveToLocalStorage(); // Зберегти в Local Storage
-    addArrowEventListeners(); // для стрілок на товарі
-
-    // прибираєм клас newItem для коректної роботи анімації
-    const newItem = sidebarItems.querySelector(".newItem");
-    setTimeout(() => {
-      newItem.classList.remove("newItem");
-    }, 310);
   }
 
   // SIDEBAR - зберегти до local storage
