@@ -136,7 +136,6 @@
 .sidebar__mid {
   overflow-y: auto;
   max-height: calc(100vh - 153px);
-  scrollbar-base-color: aquamarine;
 }
 .sidebar__bottom::before {
   top: -10px;

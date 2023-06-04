@@ -62,4 +62,11 @@ export function homeScript() {
   allProductsBtn.addEventListener("click", () => {
     productsLink.click();
   });
+
+  // параллакс
+  window.addEventListener("scroll", function () {
+    const parallaxBg = document.querySelector(".home__parallax-bg");
+    const scrolled = window.pageYOffset;
+    parallaxBg.style.transform = `translateY(${scrolled * 0.4}px)`;
+  });
 }
