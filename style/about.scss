@@ -1,0 +1,58 @@
+@import "variables.scss";
+
+.about {
+  &__title-fakeWrap {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    min-height: 120px;
+    background-color: lighten($theme-color, 30%);
+    width: 100%;
+    @media (max-width: 500px) {
+      top: 75px;
+      min-height: 60px;
+    }
+  }
+
+  &__title-wrap {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    min-height: 120px;
+    color: $font-color;
+    font-size: 25px;
+    font-weight: bold;
+    width: 100%;
+    max-width: 100%;
+    @media (max-width: 500px) {
+      justify-content: center;
+      min-height: 60px;
+    }
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    margin: 0 10px;
+    z-index: 1;
+  }
+
+  &__content {
+    color: $font-color;
+    margin: 0 auto;
+    max-width: 500px;
+    line-height: 25px;
+    padding: 0 20px;
+  }
+
+  &__content-title {
+    text-align: center;
+    margin: 40px 0 20px 0;
+    font-family: "Poppins";
+    font-weight: bold;
+  }
+
+  &__slash {
+    color: red;
+  }
+}

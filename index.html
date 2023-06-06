@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="src/favicon2.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="furniture" />
+    <title>MyStore</title>
+    <link rel="stylesheet" href="./style/main.css" />
+    <link rel="stylesheet" href="./style/normalize.css" />
+  </head>
+  <body class="main">
+    <header class="header">
+      <nav class="header__nav">
+        <a href="#home" class="header__item">Home</a>
+        <a href="#products" class="header__item">Products</a>
+        <a href="#about" class="header__item">About</a>
+      </nav>
+      <img
+        class="header__logo header__img"
+        src="../src/logo.png"
+        alt="header-logo"
+      />
+      <img
+        class="header__bin header__img"
+        src="../src/bin.png"
+        alt="header-bin"
+      />
+      <span class="header__counter">99</span>
+    </header>
+
+    <article class="content"></article>
+
+    <aside class="sidebar">
+      <section class="sidebar__top">
+        <h2 class="sidebar__title">Your Bag</h2>
+        <span class="sidebar__closeBtn">&times;</span>
+      </section>
+      <section class="sidebar__mid">
+        <ul class="sidebar__items"></ul>
+      </section>
+      <section class="sidebar__bottom">
+        <p class="sidebar__total">Total: 0 ₴</p>
+        <button class="sidebar__btn">checkout</button>
+      </section>
+    </aside>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="js/script.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style/main.css" />
+    <link rel="stylesheet" href="../style/products.css" />
+  </head>
+  <body class="products">
+    <div class="products__title-fakeWrap"></div>
+    <div class="products__title-wrap">
+      <p class="products__title">Home / Products</p>
+    </div>
+    <section class="products__content">
+      <article class="products__search-wrap">
+        <input
+          class="products__input"
+          name="products__input"
+          type="text"
+          placeholder="пошук..."
+        />
+        <li class="products__search-item">Bci кімнати</li>
+        <li class="products__search-item">Вітальня</li>
+        <li class="products__search-item">Передпокій</li>
+        <li class="products__search-item">Спальня</li>
+        <li class="products__search-item">Ванна</li>
+        <li class="products__search-item">Комп'ютерні столи</li>
+
+        <div class="products__slider-container">
+          <label class="products__search-label" for="myRange">Шкала цін</label
+          ><br />
+          <input
+            class="products__slider"
+            id="myRange"
+            type="range"
+            min="399"
+            max="5999"
+            value="5999"
+            step="1"
+          />
+          <div class="products__slider-valueBox">
+            <span id="dot"></span>
+          </div>
+        </div>
+      </article>
+
+      <article class="products__layout"></article>
+    </section>
+    <script type="module" src="../js/products.js"></script>
+  </body>
+</html>
