@@ -84,6 +84,7 @@
   &__search-item {
     font-family: "Nunito", sans-serif;
     padding-left: 5px;
+    list-style: none;
     &:hover {
       background-color: $theme-color;
       border-radius: 4px;

@@ -89,6 +89,7 @@
 .products__search-item {
   font-family: "Nunito", sans-serif;
   padding-left: 5px;
+  list-style: none;
 }
 .products__search-item:hover {
   background-color: rgb(94, 143, 235);
