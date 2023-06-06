@@ -2,49 +2,31 @@ import { allFurniture } from "./furnitureDB.js";
 
 export function productsScript() {
   const main = document.querySelector(".products__layout");
-  const btnAll = document.querySelector(".products__All");
-  const btnLiving = document.querySelector(".products__LivingRoom");
-  const btnHall = document.querySelector(".products__HallRoom");
-  const btnBed = document.querySelector(".products__BedRoom");
-  const btnBath = document.querySelector(".products__BathRoom");
-  const btnDesc = document.querySelector(".products__PCDesc");
+  const btns = document.querySelectorAll(".products__search-item");
   const textInput = document.querySelector(".products__input");
 
   // Перший запуск
   generator(allFurniture);
 
-  // навішуєм обробники подій на btn
-  btnAll.addEventListener("click", () => {
-    main.innerHTML = ""; // видалити все з main
-    generator(allFurniture);
-  });
-  btnLiving.addEventListener("click", () => {
-    onUpdate("Вітальня");
-  });
-  btnHall.addEventListener("click", () => {
-    onUpdate("Передпокій");
-  });
-  btnBed.addEventListener("click", () => {
-    onUpdate("Спальня");
-  });
-  btnBath.addEventListener("click", () => {
-    onUpdate("Ванна");
-  });
-  btnDesc.addEventListener("click", () => {
-    onUpdate("Комп'ютерні столи");
-  });
+  // навішуєм обробники подій на btn і запускаєм рендер
+  btns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const value = btn.textContent;
+      main.innerHTML = ""; // видалити все з main
 
-  // оновлюєм сторінку кнопкою
-  function onUpdate(value) {
-    main.innerHTML = "";
-    let arr = [];
-    for (let i = 0; i < allFurniture.length; i++) {
-      if (allFurniture[i].type === value) {
-        arr.push(allFurniture[i]);
+      if (value === "Bci кімнати") {
+        generator(allFurniture);
+      } else {
+        let arr = [];
+        for (let i = 0; i < allFurniture.length; i++) {
+          if (allFurniture[i].type === value) {
+            arr.push(allFurniture[i]);
+          }
+        }
+        generator(arr);
       }
-    }
-    generator(arr);
-  }
+    });
+  });
 
   //логіка для інпута
   textInput.addEventListener("input", (event) => {

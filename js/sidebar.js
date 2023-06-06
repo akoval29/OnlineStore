@@ -1,24 +1,17 @@
 export function sidebarScript() {
   const headerBin = document.querySelector(".header__bin");
-  const headerCounter = document.querySelector(".header__counter");
   const sidebar = document.querySelector(".sidebar");
   const sidebarItems = document.querySelector(".sidebar__items");
   const closeBtn = document.querySelector(".sidebar__closeBtn");
-  const closeBtn2 = document.querySelector(".sidebar__title");
 
   // SIDEBAR - евент лісенери
   headerBin.addEventListener("click", () => {
     sidebar.classList.add("sidebar--open");
   });
-  headerCounter.addEventListener("click", () => {
-    sidebar.classList.add("sidebar--open");
-  });
   closeBtn.addEventListener("click", () => {
     sidebar.classList.remove("sidebar--open");
   });
-  closeBtn2.addEventListener("click", () => {
-    sidebar.classList.remove("sidebar--open");
-  });
+
   document.addEventListener("click", (event) => {
     sideBarCore(event);
     onTotal();
@@ -89,7 +82,6 @@ export function sidebarScript() {
     }
 
     generator(imageUrl, itemName, price, counter); // генеруєм верстку
-
     saveToLocalStorage(); // Зберегти в Local Storage
     addArrowEventListeners(); // для стрілок на товарі
     onAnimateCard(); // анімація
