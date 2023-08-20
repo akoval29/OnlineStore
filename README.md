@@ -1,6 +1,4 @@
-<div align="center">
-  <h1>Online Store</h1>
-</div>
+# Online Store
 ![Preview Animation](https://github.com/akoval29/OnlineStore/blob/main/src/preview.gif)
 ## Key features
 - **Page Navigation:** Easily navigate between the three distinct pages using intuitive routes implemented in vanilla JavaScript.
