@@ -65,7 +65,7 @@
 .home__title {
   font-family: "Nunito", sans-serif;
   letter-spacing: 3px;
-  font-size: 50px;
+  font-size: 60px;
 }
 @media (max-width: 676px) {
   .home__title {
@@ -173,7 +173,7 @@
   overflow: hidden;
 }
 .home__img {
-  width: 200px;
+  width: 250px;
   -o-object-fit: cover;
      object-fit: cover;
   transition: transform 0.3s ease;

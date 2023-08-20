@@ -2,17 +2,6 @@ import { allFurniture } from "./furnitureDB.js";
 import { productsLink } from "./script.js";
 
 export function homeScript() {
-  // корекція висоти bg
-  const titleWrap = document.querySelector(".home__title-wrap");
-  const newHeight = () => {
-    const newTitleWrapHeight = titleWrap.offsetWidth / 1.9;
-    titleWrap.style.height = `${newTitleWrapHeight}px`;
-  };
-  if (titleWrap) {
-    window.addEventListener("resize", newHeight);
-    newHeight(); // Викликати функцію при першому завантаженні
-  }
-
   // параллакс
   const parallaxBg = document.querySelector(".home__parallax-bg");
   if (parallaxBg) {

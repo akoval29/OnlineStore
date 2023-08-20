@@ -49,6 +49,7 @@
     flex-direction: column;
     position: relative;
     width: 100%;
+    // font-size: 45px;
     margin: 0 10px;
     min-height: 100vh;
     @media (max-width: 500px) {
@@ -67,7 +68,7 @@
     // font-family: "Montserrat";
     font-family: "Nunito", sans-serif;
     letter-spacing: 3px;
-    font-size: 50px;
+    font-size: 60px;
     @media (max-width: 676px) {
       font-size: 35px;
     }
@@ -171,7 +172,7 @@
   }
 
   &__img {
-    width: 200px;
+    width: 250px;
     object-fit: cover;
     transition: transform 0.3s ease;
     &:hover {
